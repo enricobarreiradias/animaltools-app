@@ -45,7 +45,7 @@ export default function LoginPage() {
             localStorage.setItem("user", JSON.stringify(user));
         }
 
-        router.push("/pending");
+        router.push("/dashboard");
       } else {
         setError("Token não recebido. Tente novamente.");
       }

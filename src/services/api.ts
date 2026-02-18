@@ -71,6 +71,7 @@ export const AnimalService = {
   getFarms: () => api.get<string[]>("/animal/filters/farms"),
   getClients: () => api.get<string[]>("/animal/filters/clients"),
   sync: () => api.get("/animal/integration/sync"),
+  getResearchData: () => api.get("/animal/export/research"),
 };
 
 export const EvaluationService = {

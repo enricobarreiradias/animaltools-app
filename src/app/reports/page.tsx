@@ -41,7 +41,7 @@ import {
   AccessTime,
 } from "@mui/icons-material";
 import { AnimalService, EvaluationService } from "../../services/api";
-// IMPORT DO MODAL
+import ResearchDataButton from "../../components/xlsx/ResearchDataButton";
 import StatsReportModal from "../../components/pdf/StatsReportModal";
 
 // --- TIPAGEM ATUALIZADA ---
@@ -349,6 +349,7 @@ export default function ReportsPage() {
             >
               Configurar PDF
             </Button>
+            <ResearchDataButton />
           </Stack>
         </Stack>
 

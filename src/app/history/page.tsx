@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, Suspense } from "react"; // Adicionado Suspense
 import { useRouter, useSearchParams } from "next/navigation";
 import dynamic from "next/dynamic";
 import {
@@ -74,7 +74,8 @@ interface UserInfo {
   fullName?: string;
 }
 
-export default function HistoryPage() {
+// 1. Renomeamos o componente original para HistoryContent e removemos o export default
+function HistoryContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -540,5 +541,20 @@ export default function HistoryPage() {
         }
       />
     </Box>
+  );
+}
+
+// 2. Criamos o export default envolvendo o conteúdo no Suspense
+export default function HistoryPage() {
+  return (
+    <Suspense 
+      fallback={
+        <Box height="100vh" display="flex" alignItems="center" justifyContent="center">
+          <CircularProgress />
+        </Box>
+      }
+    >
+      <HistoryContent />
+    </Suspense>
   );
 }

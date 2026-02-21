@@ -63,7 +63,7 @@ export interface ReportData {
   teeth: ToothData[];
 }
 
-// [NOVO] Adicionado user para receber quem está emitindo
+// Adicionado user para receber quem está emitindo
 interface ReportProps {
   data: ReportData;
   user?: { name: string };
@@ -231,7 +231,7 @@ export const DentalReportDoc = ({ data, user }: ReportProps) => {
               {new Date(data.evaluationDate).toLocaleDateString("pt-BR")}
             </Text>
 
-            {/* Linha 2: QUEM ESTÁ EMITINDO (NOVO) */}
+            {/* Linha 2: QUEM ESTÁ EMITINDO  */}
             <Text style={styles.subtitle}>
               Emissão: {new Date().toLocaleDateString("pt-BR")} por{" "}
               {user?.name || "Sistema"}

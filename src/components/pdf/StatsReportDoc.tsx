@@ -245,7 +245,7 @@ export interface ReportStatsData {
     criticalPercentage: string;
   };
   pathologies: Record<string, PathologyItem>;
-  // [NOVO] Adicionado suporte para cronologia
+  // Adicionado suporte para cronologia
   chronology?: Record<string, PathologyItem>;
   criticalAnimals?: CriticalAnimal[];
 }
@@ -254,7 +254,7 @@ export interface ReportStatsData {
 export interface StatsReportOptions {
   showGeneralStats: boolean;
   showPathologyList: boolean;
-  // [NOVO] Opção para exibir cronologia
+  // Opção para exibir cronologia
   showChronology?: boolean;
   showCriticalList: boolean;
   clientLogo?: string | null;
@@ -422,7 +422,7 @@ export const StatsReportDoc = ({
           </>
         )}
 
-        {/* 2. CRONOLOGIA DENTÁRIA (NOVA SEÇÃO) */}
+        {/* 2. CRONOLOGIA DENTÁRIA */}
         {showChronology && chronologyList.length > 0 && (
           <>
             <Text style={styles.sectionTitle}>

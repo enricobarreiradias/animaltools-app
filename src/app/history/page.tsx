@@ -74,7 +74,6 @@ interface UserInfo {
   fullName?: string;
 }
 
-// 1. Renomeamos o componente original para HistoryContent e removemos o export default
 function HistoryContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -544,12 +543,16 @@ function HistoryContent() {
   );
 }
 
-// 2. Criamos o export default envolvendo o conteúdo no Suspense
 export default function HistoryPage() {
   return (
-    <Suspense 
+    <Suspense
       fallback={
-        <Box height="100vh" display="flex" alignItems="center" justifyContent="center">
+        <Box
+          height="100vh"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
           <CircularProgress />
         </Box>
       }

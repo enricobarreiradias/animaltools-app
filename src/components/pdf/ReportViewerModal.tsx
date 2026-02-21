@@ -26,7 +26,7 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-// [NOVO] Adicionada prop user
+// Adicionada prop user
 interface Props {
   open: boolean;
   onClose: () => void;
@@ -99,7 +99,7 @@ export default function ReportViewerModal({
 
           {!loading && data && (
             <PDFDownloadLink
-              // [NOVO] Passa o user para o PDF para gerar o botão de download
+              // Passa o user para o PDF para gerar o botão de download
               document={
                 <DentalReportDoc
                   data={data}
@@ -145,7 +145,7 @@ export default function ReportViewerModal({
             showToolbar={true}
             style={{ border: "none" }}
           >
-            {/* [NOVO] Passa o user para o PDF na visualização */}
+            {/* Passa o user para o PDF na visualização */}
             <DentalReportDoc
               data={data}
               user={

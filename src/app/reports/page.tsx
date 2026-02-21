@@ -44,7 +44,7 @@ import { AnimalService, EvaluationService } from "../../services/api";
 import ResearchDataButton from "../../components/xlsx/ResearchDataButton";
 import StatsReportModal from "../../components/pdf/StatsReportModal";
 
-// --- TIPAGEM ATUALIZADA ---
+// --- TIPAGEM  ---
 interface ReportStats {
   general: {
     total: number;
@@ -56,7 +56,6 @@ interface ReportStats {
     moderatePercentage: string;
     criticalPercentage: string;
   };
-  // NOVO CAMPO: CRONOLOGIA
   chronology: Record<
     string,
     {
@@ -247,7 +246,7 @@ export default function ReportsPage() {
     return colors[index % colors.length];
   };
 
-  // Cor específica para barras de cronologia (tons de azul/ciano)
+  // Cor específica para barras de cronologia
   const getChronologyColor = (index: number) => {
     const colors = [
       "#0ea5e9", // Sky 500
@@ -291,7 +290,7 @@ export default function ReportsPage() {
 
   return (
     <Box sx={{ bgcolor: "#f8fafc", minHeight: "100vh", pb: 6 }}>
-      {/* HEADER MODERNO */}
+      {/* HEADER */}
       <Box
         sx={{
           bgcolor: "white",
@@ -335,7 +334,7 @@ export default function ReportsPage() {
               Atualizar
             </Button>
 
-            {/* BOTÃO EXPORTAR ATUALIZADO */}
+            {/* BOTÃO EXPORTAR */}
             <Button
               variant="contained"
               startIcon={<Download />}
@@ -435,7 +434,7 @@ export default function ReportsPage() {
 
       {/* CONTEÚDO PRINCIPAL */}
       <Box px={4} pt={4}>
-        {/* KPIs - CARDS MODERNOS */}
+        {/* KPIs */}
         <Grid container spacing={3} mb={4}>
           <Grid size={{ xs: 12, md: 4 }}>
             <Card
@@ -720,7 +719,7 @@ export default function ReportsPage() {
             </Card>
           </Grid>
 
-          {/* 2. CRONOLOGIA DENTÁRIA (Centro - NOVO) */}
+          {/* 2. CRONOLOGIA DENTÁRIA */}
           <Grid size={{ xs: 12, lg: 4 }}>
             <Card
               elevation={0}

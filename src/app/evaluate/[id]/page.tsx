@@ -56,8 +56,8 @@ enum ColorScale {
 }
 
 enum ToothType {
-  DECIDUOUS = "DECIDUOUS", // Leite
-  PERMANENT = "PERMANENT", // Permanente
+  DECIDUOUS = "DECIDUOUS",
+  PERMANENT = "PERMANENT",
 }
 
 type AnimalMedia =

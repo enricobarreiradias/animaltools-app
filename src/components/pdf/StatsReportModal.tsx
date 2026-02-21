@@ -59,27 +59,19 @@ export default function StatsReportModal({
     clientName: "",
   });
 
-  // --- CORREÇÃO DO ERRO ---
-  // 1. Armazenamos a lista anterior para comparar se houve mudança
   const [prevPathologyList, setPrevPathologyList] = useState(pathologyList);
 
-  // 2. Inicializamos o estado (Lazy Initialization)
   const [selectedPathologies, setSelectedPathologies] = useState<string[]>(() =>
     pathologyList.map((p) => p.key),
   );
 
-  // 3. Padrão "Adjust State on Prop Change":
-  // Se a prop mudou desde a última renderização, atualizamos o estado IMEDIATAMENTE.
-  // Isso evita o "useEffect" e o erro de renderização em cascata.
   if (pathologyList !== prevPathologyList) {
     setPrevPathologyList(pathologyList);
     setSelectedPathologies(pathologyList.map((p) => p.key));
   }
-  // -------------------------
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Manipula a seleção individual de patologias
   const handlePathologyToggle = (key: string) => {
     setSelectedPathologies((prev) =>
       prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key],
@@ -100,7 +92,6 @@ export default function StatsReportModal({
     }
   };
 
-  // Filtra a lista antes de passar para o PDF
   const filteredPathologyList = pathologyList.filter((item) =>
     selectedPathologies.includes(item.key),
   );
@@ -130,7 +121,7 @@ export default function StatsReportModal({
             document={
               <StatsReportDoc
                 stats={data}
-                pathologyList={filteredPathologyList} // Passamos a lista filtrada
+                pathologyList={filteredPathologyList}
                 filters={filters}
                 user={user}
                 options={options}
